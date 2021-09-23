@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'WeathersController' do
+RSpec.describe 'ForecastsController' do
   before(:each) do  
     GET "/api/v1/forecast?location=denver,co"
     res = JSON.parse(response.body, symbolize_names: true)

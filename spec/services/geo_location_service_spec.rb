@@ -8,7 +8,6 @@ RSpec.describe 'GeoLocationService' do
     it 'given a city and state params, calls the mapquest api and returns the lat and long' do
       name = 'denver,co'
       @lat, @lng = GeoLocationService.get_coordinates(name)
-      binding.pry
       expect(@lat).to eq(39.738453)
       expect(@lng).to eq(-104.984853)
     end

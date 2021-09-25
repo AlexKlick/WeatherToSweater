@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Api::V1::ForecastController' do
+RSpec.describe Api::V1::ForecastController do
   before(:each) do
   end
   it 'does' do

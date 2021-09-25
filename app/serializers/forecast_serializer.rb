@@ -1,6 +1,6 @@
 class ForecastSerializer
   include JSONAPI::Serializer
-  def self.serialize(forecast_data, time_til_forecast)
+  def self.serialize(forecast_data)
     daily_arr = []
     5.times do |i|
       day = {
@@ -14,18 +14,7 @@ class ForecastSerializer
       }
       daily_arr << day
     end
-    if time_til_forecast != nil
-      hourly_arr = []
-      i = time_til_forecast - 1
-      hour = {
-        time: Time.at(forecast_data[:hourly][i][:dt]),
-        temp: forecast_data[:hourly][i][:temp],
-        conditions: "#{forecast_data[:hourly][i][:weather][0][:main]} + #{forecast_data[:hourly][i][:weather][0][:description]}",
-        icon: forecast_data[:hourly][i][:weather][0][:icon]
-      }
-      hourly_arr << hour
-    else
-      hourly_arr = []
+    hourly_arr = []
       8.times do |i| 
       hour = {
         time: Time.at(forecast_data[:hourly][i][:dt]),
@@ -34,7 +23,6 @@ class ForecastSerializer
         icon: forecast_data[:hourly][i][:weather][0][:icon]
       }
       hourly_arr << hour
-      end
     end
               { 
       data: {

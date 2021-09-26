@@ -7,14 +7,7 @@ class Api::V1::UsersController < ApplicationController
           user = User.new(user_params)
           user.save
           status = 201
-          serial_hash = {}
-          serial_hash[:data] = {}
-          serial_hash[:data][:type] = "users"
-          serial_hash[:data][:id] = user.id
-          serial_hash[:data][:attributes] = {}
-          serial_hash[:data][:attributes][:email] = user.email
-          serial_hash[:data][:attributes][:api_key] = user.api_key
-          render json: serial_hash.to_json, status: status
+          render json: UserSerializer.serialize(user), status: status
         else
           message = "Email appears to be missing"
           render json: message.to_json, status: 401

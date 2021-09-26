@@ -1,14 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'ForcastService' do
-  it 'does' do
-   binding.pry
-  end
   describe 'get_weather' do
     it 'take an array of [lat, lng] and returns the parsed weather data' do
       @lat, @lng = GeoLocationService.get_coordinates('Denver, CO')
       forecast_data = ForecastService.get_forecast_data(@lat, @lng)
-      binding.pry
       expect(forecast_data).to be_a(Hash)
       #current weather format
       expect(forecast_data[:current]).to be_a(Hash)

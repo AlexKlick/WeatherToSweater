@@ -25,5 +25,4 @@ module PictureServices
     response = Faraday.get("https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=#{photo_reference}&key=#{ENV["places_key"]}")
     response.headers['location']
   end
-  #refactor to facade
 end

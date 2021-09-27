@@ -10,6 +10,7 @@ class Api::V1::RoadTripController < ApplicationController
     end
   end
 
+  
   private
 
   def trip_params

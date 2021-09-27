@@ -1,5 +1,5 @@
 module BookSearchSerializer
-  def self.serialize(forecast_data, book_data, location, count)
+  def self.serialize(forecast_data, book_data, location)
     serial_hash = {}
     serial_hash[:data] = {}
     serial_hash[:data][:id] = nil
@@ -12,14 +12,22 @@ module BookSearchSerializer
     serial_hash[:data][:attributes][:total_books_found] = book_data[:numFound]
     serial_hash[:data][:attributes][:books] = []
 
-    book_data[:docs].each do |book, i|
-      binding.pry
-      serial_hash[:data][:attributes][:books][:isbn] = []
-      serial_hash[:data][:attributes][:books][:title] = []
-      serial_hash[:data][:attributes][:books][:publisher] = []
-      if 
-        serial_hash[:data][:attributes][:books] << book
+    book_data[:docs].each_with_index do |book, i|
+      serial_hash[:data][:attributes][:books] << {}
+      if book[:isbn]
+        serial_hash[:data][:attributes][:books][i][:isbn] = []
+        book[:isbn].each do |isbn|
+          serial_hash[:data][:attributes][:books][i][:isbn] << isbn
+        end
+      else
+        serial_hash[:data][:attributes][:books][i][:isbn] = nil
+      end
+      serial_hash[:data][:attributes][:books][i][:title] = book[:title]
+      serial_hash[:data][:attributes][:books][i][:publisher] = []
+      book[:publisher].each do |pub|
+        serial_hash[:data][:attributes][:books][i][:publisher] << pub
       end
     end
+    serial_hash
   end
 end

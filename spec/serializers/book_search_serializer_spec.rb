@@ -29,7 +29,6 @@ RSpec.describe 'BookSearchSerializer' do
       expect(serialized_hash[:data][:attributes][:destination]).to eq("Denver,co") #destination = location
       expect(serialized_hash[:data][:attributes][:books].length).to eq(count) #books_found = count
 
-
     end
   end
 end

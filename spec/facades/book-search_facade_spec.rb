@@ -12,4 +12,10 @@ RSpec.describe 'BookSearchFacade' do
       expect(forecast[:current][:weather][0][:description]).to be_a(String)
     end
   end
+  
+  describe 'initialize_book_search(location)' do
+    it 'recieves location and retrurns a hash with the data' do
+     
+    end
+  end
 end

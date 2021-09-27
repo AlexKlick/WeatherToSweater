@@ -15,12 +15,14 @@ RSpec.describe 'BookSearchSerializer' do
       expect(serialized_hash[:data][:attributes][:forecast]).to be_a(Hash)
       expect(serialized_hash[:data][:attributes][:forecast][:summary]).to be_a(String)
       expect(serialized_hash[:data][:attributes][:forecast][:temperature].split(' ')[0]).to be_a(String)
+      #temperature should return format like: "77.7 °F", testing that first element is float, second element is °F
       expect(serialized_hash[:data][:attributes][:forecast][:temperature].split(' ')[0].to_f.to_s).to eq(serialized_hash[:data][:attributes][:forecast][:temperature].split(' ')[0]) #test is actual float
       expect(serialized_hash[:data][:attributes][:forecast][:temperature].split(' ')[1]).to eq('°F')
       expect(serialized_hash[:data][:attributes][:total_books_found]).to be_a(Integer)
       expect(serialized_hash[:data][:attributes][:books]).to be_a(Array)
       expect(serialized_hash[:data][:attributes][:books][0]).to be_a(Hash)
-      expect(serialized_hash[:data][:attributes][:books][0][:isbn])
+      #this was returning nil for isbn for some books.. for denver book 0 doesn't have isbn listed  ** updated to return empty array if missing (instead of nil)
+      expect(serialized_hash[:data][:attributes][:books][0][:isbn]).to be_a(Array)
       expect(serialized_hash[:data][:attributes][:books][0][:title][0]).to be_a(String)
       expect(serialized_hash[:data][:attributes][:books][0][:publisher]).to be_a(Array)
       expect(serialized_hash[:data][:attributes][:books][0][:publisher][0]).to be_a(String)

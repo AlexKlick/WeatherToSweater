@@ -20,7 +20,7 @@ module BookSearchSerializer
           serial_hash[:data][:attributes][:books][i][:isbn] << isbn
         end
       else
-        serial_hash[:data][:attributes][:books][i][:isbn] = nil
+        serial_hash[:data][:attributes][:books][i][:isbn] = []
       end
       serial_hash[:data][:attributes][:books][i][:title] = book[:title]
       serial_hash[:data][:attributes][:books][i][:publisher] = []

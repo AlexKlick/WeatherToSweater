@@ -6,7 +6,8 @@ RSpec.describe 'BookSearchSerializer' do
       location = "Denver,co"
       forecast_data = BookSearchFacade.get_forecast(location)
       book_data = BookServices.get_books_for_location(location)
-      serialized_hash = BookSearchSerializer.serialize(forecast_data, book_data)
+      count = 5
+      serialized_hash = BookSearchSerializer.serialize(forecast_data, book_data, location)
       expect(serialized_hash[:data]).to be_a(Hash)
       expect(serialized_hash[:data][:id]).to eq(nil)
       expect(serialized_hash[:data][:attributes]).to be_a(Hash)

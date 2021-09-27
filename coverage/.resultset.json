@@ -1,54 +1,13 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/facades/book_search_facade.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/facades/forecast_facade.rb": {
+      "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/services/book_services.rb": {
         "lines": [
           1,
           null,
           1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/services/geo_location_service.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/services/forecast_service.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
+          2,
+          2,
           null,
           null
         ]
@@ -131,6 +90,37 @@
           0,
           0,
           null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/serializers/book_search_serializer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0
         ],
         "branches": {
@@ -239,6 +229,40 @@
           0,
           0,
           null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/facades/forecast_facade.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/facades/book_search_facade.rb": {
+        "lines": [
           0,
           0,
           0,
@@ -391,6 +415,20 @@
         "branches": {
         }
       },
+      "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/services/geo_location_service.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/services/picture_services.rb": {
         "lines": [
           0,
@@ -425,10 +463,9 @@
         "branches": {
         }
       },
-      "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/services/book_services.rb": {
+      "/Users/alexmac/Documents/turing/mod_3/projects/sweater/WhetherToSweater/app/services/forecast_service.rb": {
         "lines": [
           0,
-          null,
           0,
           0,
           0,
@@ -463,6 +500,6 @@
         }
       }
     },
-    "timestamp": 1632757257
+    "timestamp": 1632759866
   }
 }

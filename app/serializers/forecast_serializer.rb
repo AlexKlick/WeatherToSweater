@@ -24,6 +24,7 @@ class ForecastSerializer
       }
       hourly_arr << hour
     end
+
     object = { 
       data: {
         id: nil,

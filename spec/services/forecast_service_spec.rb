@@ -14,7 +14,7 @@ RSpec.describe 'ForcastService' do
       expect(forecast_data[:current][:temp]).to be_a(Float)
       expect(forecast_data[:current][:feels_like]).to be_a(Float)
       expect(forecast_data[:current][:humidity]).to be_a(Integer)
-      expect(forecast_data[:current][:uvi]).to be_a(Float)
+      expect(forecast_data[:current][:uvi]).to be_a(Numeric)
       expect(forecast_data[:current][:visibility]).to be_a(Integer)
       expect(forecast_data[:current][:weather]).to be_a(Array)
       expect(forecast_data[:current][:weather][0]).to be_a(Hash)

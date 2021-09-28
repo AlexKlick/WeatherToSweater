@@ -10,13 +10,13 @@ module PictureServices
 
   def self.get_autocompleted(location)
     response = Faraday.get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input=#{location}&key=#{ENV["places_key"]}")
-    parsed = JSON.parse(response.body, symbolize_names: true)
+    parsed =  Oj.load(response.body, :symbol_keys => true)
     parsed[:predictions][0][:place_id]
   end
   
   def self.get_photos_ref(place_id)
     response = Faraday.get("https://maps.googleapis.com/maps/api/place/details/json?fields=photo&place_id=#{place_id}&key=#{ENV["places_key"]}")
-    parsed = JSON.parse(response.body, symbolize_names: true)
+    parsed =  Oj.load(response.body, :symbol_keys => true)
     photos = parsed[:result][:photos]
     photos[rand(0..photos.length-1)][:photo_reference] #returns a random photo from the city
   end

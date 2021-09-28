@@ -9,7 +9,7 @@ class UserSerializer
     serial_hash[:data][:attributes] = {}
     serial_hash[:data][:attributes][:email] = user_data.email
     serial_hash[:data][:attributes][:api_key] = user_data.api_key
-    serial_hash
+    Oj.dump(serial_hash, :strict)
   end
 
 end

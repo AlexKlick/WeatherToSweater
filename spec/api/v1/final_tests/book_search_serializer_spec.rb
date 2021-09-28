@@ -1,0 +1,36 @@
+require 'rails_helper'
+
+RSpec.describe 'BookSearchSerializer' do
+  describe 'serialize()' do
+    it 'takes in forecast_data, books_data and returns a hash for rendering' do
+      location = "Denver,co"
+      forecast_data = BookSearchFacade.get_forecast(location)
+      count = 5
+      book_data = BookServices.get_books_for_location(location, count)
+      serialized_hash = BookSearchSerializer.serialize(forecast_data, book_data, location)
+      serialized_hash = Oj.load(serialized_hash, :symbol_keys => true)
+      expect(serialized_hash[:data]).to be_a(Hash)
+      expect(serialized_hash[:data][:id]).to eq(nil)
+      expect(serialized_hash[:data][:attributes]).to be_a(Hash)
+      expect(serialized_hash[:data][:attributes][:forecast]).to be_a(Hash)
+      expect(serialized_hash[:data][:attributes][:forecast][:summary]).to be_a(String)
+      expect(serialized_hash[:data][:attributes][:forecast][:temperature].split(' ')[0]).to be_a(String)
+      #temperature should return format like: "77.7 °F", testing that first element is float, second element is °F
+      expect(serialized_hash[:data][:attributes][:forecast][:temperature].split(' ')[0].to_f.to_s).to eq(serialized_hash[:data][:attributes][:forecast][:temperature].split(' ')[0]) #test is actual float
+      expect(serialized_hash[:data][:attributes][:forecast][:temperature].split(' ')[1]).to eq('°F')
+      expect(serialized_hash[:data][:attributes][:total_books_found]).to be_a(Integer)
+      expect(serialized_hash[:data][:attributes][:books]).to be_a(Array)
+      expect(serialized_hash[:data][:attributes][:books][0]).to be_a(Hash)
+      #this was returning nil for isbn for some books.. for denver book 0 doesn't have isbn listed  ** updated to return empty array if missing (instead of nil)
+      expect(serialized_hash[:data][:attributes][:books][0][:isbn]).to be_a(Array)
+      expect(serialized_hash[:data][:attributes][:books][0][:title][0]).to be_a(String)
+      expect(serialized_hash[:data][:attributes][:books][0][:publisher]).to be_a(Array)
+      expect(serialized_hash[:data][:attributes][:books][0][:publisher][0]).to be_a(String)
+      
+      expect(serialized_hash[:data][:type]).to eq("books") #type = books
+      expect(serialized_hash[:data][:attributes][:destination]).to eq("Denver,co") #destination = location
+      expect(serialized_hash[:data][:attributes][:books].length).to eq(count) #books_found = count
+
+    end
+  end
+end

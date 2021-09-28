@@ -13,7 +13,7 @@ RSpec.describe Api::V1::UsersController do
         password: "password",
         password_confirmation: "password"
         }
-      res = JSON.parse(response.body, symbolize_names: true)
+      res = Oj.load(response.body, :symbol_keys => true)
       expect(res[:data][:attributes][:email]).to eq(User.first.email)
       expect(User.all.count).to eq(1)
     end
@@ -25,7 +25,7 @@ RSpec.describe Api::V1::UsersController do
         password: "password",
         password_confirmation: "password"
         }
-      res = JSON.parse(response.body, symbolize_names: true)
+      res = Oj.load(response.body, :symbol_keys => true)
       expect(response.status).to eq(201)
       expect(res[:data]).to be_a(Hash)
       expect(res[:data][:type]).to be_a(String)
@@ -47,7 +47,7 @@ RSpec.describe Api::V1::UsersController do
           password_confirmation: "pass"
           }
         
-        res = JSON.parse(response.body, symbolize_names: true)
+        res = Oj.load(response.body, :symbol_keys => true)
   
         expect(response.status).to eq(401)
         expect(res).to eq("password and confirmation must match!")
@@ -71,7 +71,7 @@ RSpec.describe Api::V1::UsersController do
           password_confirmation: "password"
           }
   
-        res = JSON.parse(response.body, symbolize_names: true)
+        res = Oj.load(response.body, :symbol_keys => true)
   
         expect(res).to eq("User already exists")
       end
@@ -83,7 +83,7 @@ RSpec.describe Api::V1::UsersController do
           password_confirmation: "password"
           }
         
-        res = JSON.parse(response.body, symbolize_names: true)
+        res = Oj.load(response.body, :symbol_keys => true)
         expect(response.status).to eq(401)
         expect(res).to eq("Email appears to be missing")
       end

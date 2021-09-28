@@ -13,6 +13,6 @@ module RoadtripSerializer
       serialize[:data][:attributes][:weather_at_eta][:temperature] = arrival_weather[0][:temp]
       serialize[:data][:attributes][:weather_at_eta][:conditions] = arrival_weather[0][:weather][0][:description]
     end
-    serialize
+    Oj.dump(serialize)
   end
 end

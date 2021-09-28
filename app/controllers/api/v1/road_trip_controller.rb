@@ -2,8 +2,8 @@ class Api::V1::RoadTripController < ApplicationController
   def create
     user = User.find_by(api_key: trip_params[:api_key])
     if user
-      trip = RoadTripFacade.initialize_road_trip(params[:origin], params[:destination])
-      render json: trip.to_json
+      trip = RoadTripFacade.initialize_road_trip(trip_params[:origin], trip_params[:destination])
+      render json: trip
     else
       message = "Invalid api key"
       render json: message.to_json, status: 401

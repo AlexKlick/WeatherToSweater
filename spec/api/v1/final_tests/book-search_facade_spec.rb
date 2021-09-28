@@ -18,7 +18,7 @@ RSpec.describe 'BookSearchFacade' do
       location = 'new York, ny'
       limit = 12
       results = BookSearchFacade.initialize_book_search(location, limit)
-
+      results = Oj.load(results, :symbol_keys => true)
       expect(results[:data]).to be_a(Hash)
       expect(results[:data][:id]).to eq(nil)
       expect(results[:data][:attributes]).to be_a(Hash)

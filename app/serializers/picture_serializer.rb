@@ -7,6 +7,6 @@ module PictureSerializer
     payload[:data][:attributes] = {}
     payload[:data][:attributes][:location] = location
     payload[:data][:attributes][:image_url] = picture
-    payload
+    Oj.dump(payload)
   end
 end

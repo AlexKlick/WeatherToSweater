@@ -28,6 +28,6 @@ module BookSearchSerializer
         serial_hash[:data][:attributes][:books][i][:publisher] << pub
       end
     end
-    serial_hash
+    Oj.dump(serial_hash)
   end
 end

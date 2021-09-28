@@ -4,8 +4,8 @@ module TripTimeServices
     start = start.gsub(' ', '+')
     ending = ending.gsub(',', '%2C+')
     ending = ending.gsub(' ', '+')
-    trip_data = Faraday.get("https://www.mapquestapi.com/directions/v2/route?key=#{ENV['map_key']}&from=#{start}&to=l#{ending}&outFormat=json&ambiguities=ignore&routeType=fastest&doReverseGeocode=false&enhancedNarrative=false&avoidTimedConditions=false")
-    data = JSON.parse(trip_data.body, symbolize_names: true)
+    trip_data = Faraday.get("https://www.mapquestapi.com/directions/v2/route?key=#{ENV['map_key']}&from=#{start}&to=#{ending}&outFormat=json&ambiguities=ignore&routeType=fastest&doReverseGeocode=false&enhancedNarrative=false&avoidTimedConditions=false")
+    data =  Oj.load(trip_data.body, :symbol_keys => true)
     if data[:route][:routeError][:errorCode] != -400
       "impossible"
     else

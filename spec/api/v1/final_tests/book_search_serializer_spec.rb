@@ -8,7 +8,7 @@ RSpec.describe 'BookSearchSerializer' do
       count = 5
       book_data = BookServices.get_books_for_location(location, count)
       serialized_hash = BookSearchSerializer.serialize(forecast_data, book_data, location)
-
+      serialized_hash = Oj.load(serialized_hash, :symbol_keys => true)
       expect(serialized_hash[:data]).to be_a(Hash)
       expect(serialized_hash[:data][:id]).to eq(nil)
       expect(serialized_hash[:data][:attributes]).to be_a(Hash)

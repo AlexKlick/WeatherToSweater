@@ -1,18 +1,33 @@
-# README
+## [SweaterWeather](https://backend.turing.edu/module3/projects/sweater_weather/)
+[![Contributors][contributors-shield]][contributors-url]
+[![Issues][issues-shield]][issues-url]
+A week long project, completed during my time at Turing. It is an API only Ruby on Rails backend that utilizes:
+the Mapquest API for geo-coordiantes and directions,
+OpenWeather API for current, hourly and daily weather
+and Google Places API for pictures from the locations.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The goal was:
+1. to be able to get forecasts for cities that users specify 
+(using the geo-coordinates returned from Mapquest to get the weather data from OpenWeather)
+2. return a background image for those cities
+(using Google Places API to search for images from the city)
+3. Allow users to register and return to them a unique API key, which was needed to access some of our endpoints
+4. allow User login via hashed passwords with Bcrypt
+5. Allow users to create a RoadTrip, in which they designate an origin and destination city, and return to them the forecasted weather for their arrival time!
+(using the forecast data from the API in goal 1 and the Mapquest directions API to estimate the arrival time)
 
-Things you may want to cover:
+This project required the use of all of the external API's working in conjuncture to provide the users with a seamless experience. 
 
+[link to lucid charts process diagrams](https://lucid.app/lucidchart/invitations/accept/inv_1d6843c4-8df1-4c96-97d1-3dc951f4b26e?viewport_loc=-129%2C-933%2C2395%2C1317%2C0_0)
 * Ruby version
-2.7.2
+![Version][version-badge]
 
 Testing
 
 1. service returns parsed data (or simple data as in GeoLocationService.get_coordinates()) 
-2. facade takes service returns and formats for controller
-3. controller renders JSON data in specified format
+2. facade takes service send to Serializer 
+3. Serializer formats data to JSON 
+3. controller renders data to the client via specified API endpoints. 
 
 Steps to returning forecast object
 1. coordinates = GeoLocationService.get_coordinates(location_name)
@@ -21,18 +36,13 @@ Steps to returning forecast object
 4. forecasts controller index calls facade and renders json 
 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
+* Database creation / initialization
+in the terminal: 
+- bundle install
+- rails db:{create,migrate}
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+- bundle exec rspec
 
 * Deployment instructions
-
-* ...
+- rails s

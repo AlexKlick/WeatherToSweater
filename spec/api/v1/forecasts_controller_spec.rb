@@ -9,9 +9,9 @@ RSpec.describe Api::V1::ForecastController do
     expect(res[:data][:id]).to eq(nil)
     expect(res[:data][:type]).to eq('forecast')
     expect(res[:data][:attributes][:current_weather]).to be_a(Hash)
-    expect(res[:data][:attributes][:current_weather][:datetime]).to be_a(Time)
-    expect(res[:data][:attributes][:current_weather][:sunrise]).to be_a(Time)
-    expect(res[:data][:attributes][:current_weather][:sunset]).to be_a(Time)
+    expect(res[:data][:attributes][:current_weather][:datetime]).to be_a(DateTime)
+    expect(res[:data][:attributes][:current_weather][:sunrise]).to be_a(DateTime)
+    expect(res[:data][:attributes][:current_weather][:sunset]).to be_a(DateTime)
     expect(res[:data][:attributes][:current_weather][:temperature]).to be_a(Float)
     expect(res[:data][:attributes][:current_weather][:feels_like]).to be_a(Float)
     expect(res[:data][:attributes][:current_weather][:humidity]).to be_a(Integer)
@@ -22,18 +22,18 @@ RSpec.describe Api::V1::ForecastController do
 
 
     #hourly weather format
-    expect(res[:data][:attributes][:hourly_weather][0][:time]).to be_a(Time)
+    expect(res[:data][:attributes][:hourly_weather][0][:time]).to be_a(DateTime)
     expect(res[:data][:attributes][:hourly_weather][0][:temp]).to be_a(Float)
     expect(res[:data][:attributes][:hourly_weather][0][:conditions]).to be_a(String)
     expect(res[:data][:attributes][:hourly_weather][0][:icon]).to be_a(String)
 
     #daily weather
     expect(res[:data][:attributes][:daily_weather]).to be_a(Array)
-    expect(res[:data][:attributes][:daily_weather][0][:date]).to be_a(Time)
-    expect(res[:data][:attributes][:daily_weather][0][:sunrise]).to be_a(Time)
-    expect(res[:data][:attributes][:daily_weather][0][:sunset]).to be_a(Time)
-    expect(res[:data][:attributes][:daily_weather][0][:max_temp]).to be_a(Float)
-    expect(res[:data][:attributes][:daily_weather][0][:min_temp]).to be_a(Float)
+    expect(res[:data][:attributes][:daily_weather][0][:date]).to be_a(DateTime)
+    expect(res[:data][:attributes][:daily_weather][0][:sunrise]).to be_a(DateTime)
+    expect(res[:data][:attributes][:daily_weather][0][:sunset]).to be_a(DateTime)
+    expect(res[:data][:attributes][:daily_weather][0][:max_temp]).to be_a(Numeric)
+    expect(res[:data][:attributes][:daily_weather][0][:min_temp]).to be_a(Numeric)
     expect(res[:data][:attributes][:daily_weather][0][:conditions]).to be_a(String)
     expect(res[:data][:attributes][:daily_weather][0][:icon]).to be_a(String)
   end

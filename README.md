@@ -1,6 +1,5 @@
 ## [SweaterWeather](https://backend.turing.edu/module3/projects/sweater_weather/)
-[![Contributors][contributors-shield]][contributors-url]
-[![Issues][issues-shield]][issues-url]
+
 A week long project, completed during my time at Turing. It is an API only Ruby on Rails backend that utilizes:
 the Mapquest API for geo-coordiantes and directions,
 OpenWeather API for current, hourly and daily weather
@@ -18,7 +17,7 @@ The goal was:
 
 This project required the use of all of the external API's working in conjuncture to provide the users with a seamless experience. 
 
-[link to lucid charts process diagrams](https://lucid.app/lucidchart/invitations/accept/inv_1d6843c4-8df1-4c96-97d1-3dc951f4b26e?viewport_loc=-129%2C-933%2C2395%2C1317%2C0_0)
+[link to lucid charts process diagrams]()
 * Ruby version
 ![Version][version-badge]
 

@@ -35,7 +35,7 @@ Steps to returning forecast object
 4. forecasts controller index calls facade and renders json 
 
 ### Get Weather Forecast Data
-```
+```json
 {
     "data": {
         "id": null,
@@ -77,7 +77,7 @@ Steps to returning forecast object
 ```
 
 ### Get a random Image from the destination city (using google places)
-```
+```json
 {
     "data": {
         "id": null,
@@ -93,7 +93,7 @@ Steps to returning forecast object
 ```
 
 ### Road Trip NY => LA
-```
+```json
 {
     ":data": {
         ":id": null,

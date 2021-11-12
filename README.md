@@ -83,9 +83,7 @@ Steps to returning forecast object
         "id": null,
         "type": "image",
         "attributes": {
-            "image_url": "https://lh3.googleusercontent.com/places/
-                AAcXr8qnLw24WJ63Gz-6VsY1mmKdVEymztBCWEaqW-NZJ21VOjVHnaZootIC4VsYgOuy_oumb2iChYauRsI5Fgwzlxpzkq
-                NOqRtc-e4=s1600-w800",
+            "image_url": "https://lh3.googleusercontent.com/places/AAcXr8qnLw24WJ63Gz-6VsY1mmKdVEymztBCWEaqW-NZJ21VOjVHnaZootIC4VsYgOuy_oumb2iChYauRsI5FgwzlxpzkqNOqRtc-e4=s1600-w800",
             "location": "detroit,mi"
         }
     }

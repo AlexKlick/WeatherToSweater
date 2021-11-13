@@ -35,6 +35,8 @@ Steps to returning forecast object
 4. forecasts controller index calls facade and renders json 
 
 ### Get Weather Forecast Data
+
+GET http://localhost:3000/api/v1/forecast?location=grand+blanc,mi
 ```json
 {
     "data": {
@@ -77,6 +79,8 @@ Steps to returning forecast object
 ```
 
 ### Get a random Image from the destination city (using google places)
+
+GET http://localhost:3000/api/v1/backgrounds?location=detroit,mi
 ```json
 {
     "data": {
@@ -90,7 +94,17 @@ Steps to returning forecast object
 }
 ```
 
-### Road Trip NY => LA
+### Road Trip NY, NY => LA, CA
+
+POST http://localhost:3000/api/v1/road_trip
+```json
+{
+  "origin": "los angeles, ca",
+  "destination": "new york, ny",
+  "api_key": ""
+}
+```
+Response Body:
 ```json
 {
     ":data": {
@@ -104,6 +118,31 @@ Steps to returning forecast object
                 ":temperature": 41.63,
                 ":conditions": "few clouds"
             }
+        }
+    }
+}
+```
+### Impossible Road Trip Denver, CO => London, UK
+
+POST http://localhost:3000/api/v1/road_trip
+```json
+{
+  "origin": "denver,co",
+  "destination": "london,uk",
+  "api_key": ""
+}
+```
+Response Body:
+```json
+{
+    ":data": {
+        ":id": null,
+        ":type": "roadtrip",
+        ":attributes": {
+            ":start_city": "denver,co",
+            ":end_city": "london,uk",
+            ":travel_time": "impossible",
+            ":weather_at_eta": {}
         }
     }
 }
